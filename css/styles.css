@@ -1,0 +1,145 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+    margin-top: 50px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+
+/* Navbar */
+
+.navbar {
+    padding: 0 0 4.5rem;
+}
+
+.logo {
+    width: 100px;
+}
+
+/* containers */
+
+.container-fluid {
+    padding: 4% 7%;
+}
+
+#title {
+    background-color: #fff;
+}
+
+/* Title */
+
+.title-img {
+    width: 500px;
+}
+
+
+/* Feature section */
+
+.container-features {
+    background-color: hsl(240, 75%, 98%);    
+}
+
+.feature-link {
+    color: hsla(173, 100%, 35%, 1);
+    text-decoration-line: underline;
+}
+
+.card {
+    width: 18rem;
+    margin-top: 25px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    border: none;
+    box-shadow: 5px 5px 5px hsl(0, 0%, 75%);
+    line-height: 1.5;
+    font-weight: 400;
+    
+}
+
+.testimonial-img {
+    border-radius: 100%;
+    width: 70px;
+    float: left;
+    margin-right: 10px;
+}
+
+.curve-img {
+    width: 99.999%;
+}
+
+.features-img {
+    width: 500px;
+    margin-top: 50px;
+}
+
+/* cta */
+
+.container-cta {
+    background-color: hsl(238, 22%, 44%);
+    padding: 7% 7%;
+}
+
+.form-cta {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.col-one-cta {
+    color: #fff;
+}
+
+.email-cta {
+    display: block;
+    margin-bottom: 10px;
+    
+}
+
+/* links */
+
+#links {
+    color: #fff;
+}
+.container-links {
+    background-color: hsl(243, 87%, 12%);
+}
+
+.sm-icon {
+    color: #fff;
+    margin: 0 5px;
+}
+
+.sm-icon:hover {
+    color: hsl(228, 45%, 44%);
+}
+
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+.logo-links {
+    margin-bottom: 18px;
+}
+
+
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.link:hover {
+    color:  hsl(228, 45%, 44%);
+    text-decoration: none;
+}

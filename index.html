@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <!-- Jquery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+      //To minimise the height of chatbox
+      $(document).ready(function() {
+          window.addEventListener('dfMessengerLoaded', function (event) {
+          $r1 = document.querySelector("df-messenger");
+          $r2 = $r1.shadowRoot.querySelector("df-messenger-chat");
+          $r3 = $r2.shadowRoot.querySelector("df-messenger-user-input"); //for other mods
+          var sheet = new CSSStyleSheet;
+          // manage box height from here
+          sheet.replaceSync( `div.chat-wrapper[opened="true"] { height: 500px; width: 600px }`);
+          $r2.shadowRoot.adoptedStyleSheets = [ sheet ];
+          });
+      });
+  </script>	
+
   <!-- Bootstrap -->  
   <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
 
@@ -14,12 +31,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon energyBot.png">
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/4bc0168fe3.js" crossorigin="anonymous"></script>
   
-  <title>Frontend Mentor | Fylo landing page with two column layout</title>
+  <title>EnergyBot | Chatbot educativo</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   
@@ -32,7 +49,8 @@
 
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#"><img class="logo" src="images/logo.svg" alt=""></a>
+        <a class="navbar-brand" href="#"><img class="logo" src="images/energy-logo-2.svg" alt=""></a>
+        <div class= "logo-text">EnergyBot</div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>      
@@ -60,19 +78,17 @@
       <div class="row">
 
         <div class="col-md-6">
-          <h2>All your files in one secure location, accessible anywhere.</h2>
+          <h2>Aprenda de um jeito fácil a economizar energia elétrica.</h2>
             <p>
-              Fylo stores your most important files in one secure location. 
-              Access them wherever you need, share and collaborate with friends, 
-              family, and co-workers.
+              O EnergyBot é um assistente virtual que ensina sobre eficiência energética. Ele vai te explicar conceitos, te dar dicas de como economizar energia elétrica e te ajudar a entender a sua conta de energia. Basta abrir a janela de conversa e dizer "Oi".
             </p>
-            <form action="">
-              <input type="email" name="email" id="" placeholder="Enter your email...">
-              <input type="button" class="btn btn-primary btn-sm " value="Get Started">
-            </form>
+            <p class= "paragraph-diga-oi">
+              Basta abrir a janela de conversa e dizer "Oi".
+            </p>
+            
         </div>
         <div class="col-md-6">
-          <img class="title-img" src="images/illustration-1.svg" alt="">
+          <img class="title-img" src="images/renewable-energy.svg" alt="">
         </div>
         
       </div>
@@ -91,30 +107,48 @@
         
 
         <div class="col-features col-md-6">
-          <h2>Stay productive, wherever you are.</h2>
+          <script src="https://www.gstatic.com/dialogflow-console/fast/messenger-cx/bootstrap.js?v=1"></script>
+          <!-- chatbot -->
+          <style>
+            df-messenger {
+              --df-messenger-bot-message: #878fac;
+              --df-messenger-button-titlebar-color: #28B5B5;
+              --df-messenger-chat-background-color: #fafafa;
+              --df-messenger-font-color: white;
+              --df-messenger-send-icon: #878fac;
+              --df-messenger-user-message: #479b3d;margin: 0;
+              
+            }
+          </style>
+          <df-messenger
+            df-cx="true"
+            location="us-central1"
+            chat-title="EnergyBot"
+            agent-id="c82d2704-0cb6-4e51-9a59-3a47b1505acc"
+            language-code="pt-br"
+        ></df-messenger>
+          <!-- end chatbot -->
+          <h2>Por que é importante economizar energia?</h2>
           <p>
-            Never let location be an issue when accessing your files. Fylo has you 
-            covered for all of your file storage needs.
+            No Brasil a geração de energia elétrica depende muito das hidrelétricas e nos últimos anos o país está passando pela maior crise hídrica dos últimos 91 anos. Os reservatórios estão com níveis muito baixos e por isso acaba sendo necessário acionar as termelétricas que funcionam com combustíveis fósseis. Com isso as emissões de CO2 aumentam e o consumidor paga mais caro na conta de energia.
             <br>
             <br>          
-            Securely share files and folders with friends, family and colleagues for 
-            live collaboration. No email attachments required!
+            
           </p>
-          <a class="feature-link" href="">See how Fylo works <img src="images/icon-arrow.svg" alt=""></a>
+          <a class="feature-link" href="https://www.epe.gov.br/sites-pt/sala-de-imprensa/noticias/Documents/infogr%c3%a1fico.pdf">Veja mais informações <img src="images/icon-arrow.svg" alt=""></a>
           <div class="card">
             <div class="card-body">
               <img src="images/icon-quotes.svg" alt=""><br>
               <br>
               <p class="card-text">
-                Fylo has improved our team productivity by an order of magnitude. Since 
-                making the switch our team has become a well-oiled collaboration machine.</p>
-                <img class="testimonial-img" src="images/avatar-testimonial.jpg" alt="">
-                <p><b>Kyle Burton</b><br>Founder & CEO, Huddle</p>                             
+                Quando as hidrelétricas não conseguem realizar esse atendimento, força o uso das termoelétricas e o custo operacional é muito alto, o que acaba impactando na tarifa e pesando no bolso do consumidor.</p>
+                <img class="testimonial-img" src="images/pedro-cortes.jpg" alt="">
+                <p><b>Pedro Cortês</b><br>Professor do Instituto de Energia e Ambiente da Universidade de São Paulo</p>                             
             </div>
           </div>
         </div>
         <div class="col-features col-md-6" class="col-md-6">
-          <img class="features-img" src="images/illustration-2.svg" alt="">
+          <img class="features-img" src="images/save-energy.svg" alt="">
         </div>
       </div>
     </div>
@@ -129,17 +163,17 @@
 
       <div class="row">
         <div class="col-md-6 col-one-cta">
-          <h2>Get early access today</h2>
+          <h2>Aprenda a economizar energia sem sair de casa e de qualquer lugar do mundo.</h2>
           <p>
-            It only takes a minute to sign up and our free starter tier is extremely generous. 
-            If you have any questions, our support team would be happy to help you.
+            Você só precisa de uma conexão à internet para aprender com o EnergyBot.
+            Acreditamos que o acesso à informação deve ser democrático e de fácil acesso.            
+          </p>
+          <p>
+            Cidadãos informados e sensibilizados para a necessidade de usar a energia de forma racional e eficiente, tendem a economizar 10% a 15%, quando comparados àqueles que não estão atentos para esta questão.
           </p>
         </div>
         <div class="col-md-6">
-          <form class="form-cta" action="">
-            <input class="email-cta" type="email" name="email" id="" placeholder="Enter your email..." size="50">
-            <input type="button" class="btn btn-primary btn-sm " value="Get Started For Free">
-          </form>          
+          <img class="title-img" src="images/ecology-plant.svg" alt="">
         </div>
 
       </div>
@@ -153,8 +187,17 @@
   <section id="links">
     <div class="container-fluid container-links">
 
-      <img class="logo-links" src="images/logo-links.svg" alt="">
+      <!-- <img class="logo-links" src="images/energy-logo-links.svg" alt="">
+      <div class= "logo-text-links">EnergyBot</div> -->
+      
       <div class="row">
+        <div class= "col-md-5">
+          <img class="logo-links" src="images/energy-logo-links.svg" alt="">
+          <span class= "logo-text-links">EnergyBot</span>
+        </div>
+      </div>
+      
+      <div class="row">               
 
         <div class="col-md-5">
           <p><img src="images/icon-phone.svg" alt=""> Phone: +55 99737-2392 <br></p>
@@ -184,7 +227,6 @@
 
   <footer>
     <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="#">Dallyla Oliveira</a>.
     </p>
   </footer>
